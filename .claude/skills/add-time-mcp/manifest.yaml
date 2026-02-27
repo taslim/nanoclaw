@@ -1,0 +1,19 @@
+skill: time-mcp
+version: 1.0.0
+description: "Time MCP server for date math, timezone conversions, and NL date parsing"
+core_version: 0.1.0
+adds:
+  - container/agent-runner/src/time-mcp.ts
+modifies:
+  - container/agent-runner/src/index.ts
+structured:
+  npm_dependencies:
+    luxon: "^3.5.0"
+    chrono-node: "^2.7.7"
+    "@types/luxon": "^3.4.2"
+conflicts: []
+depends: []
+test: "npx tsc --noEmit"
+post_apply:
+  - "cd container/agent-runner && npm install"
+  - "./container/build.sh"
